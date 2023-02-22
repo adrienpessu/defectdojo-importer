@@ -1,4 +1,4 @@
-module defectdojo_importer
+module defectdojo-importer
 
 go 1.19
 
