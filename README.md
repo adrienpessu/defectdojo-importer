@@ -19,3 +19,16 @@ File configuration
 DefectDojo configuration
 - `dojo-token`: DefectDojo token (Mandatory)
 - `dojo-instance`: DefectDojo instance URL (Mandatory)
+
+
+# Run 
+
+```
+defectdojo-importer --github-token <GithubToken> --github-organization <org> --github-repository <repository> --dojo-token <defectdojo token> --dojo-instance <Dojo instance domain>
+```
+
+or 
+
+```
+defectdojo-importer --sarif-path sarif.json --dojo-instance <Dojo instance domain>
+```
