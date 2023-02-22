@@ -23,6 +23,6 @@ jobs:
     - name: Build
       run: go build -v ./...
 			
-		- uses: ncipollo/release-action@v1
+    - uses: ncipollo/release-action@v1
       with:
         artifacts: "defectdojo-importer"
