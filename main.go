@@ -30,6 +30,7 @@ func main() {
 	// DefectDojo configuration
 	dojoToken := flag.String("dojo-token", "", "DefectDojo token")
 	dojoInstance := flag.String("dojo-instance", "", "DefectDojo instance URL")
+	dojoEngagement := flag.Int("dojo-engagement", 1, "DefectDojo engagement")
 
 	flag.Parse()
 
@@ -86,7 +87,7 @@ func main() {
 		return
 	}
 
-	sendSarifToDefectDojo(*dojoInstance, *dojoToken, 1, sarif)
+	sendSarifToDefectDojo(*dojoInstance, *dojoToken, *dojoEngagement, sarif)
 }
 
 func requestSarif(token string, instance string, owner string, repo string, analysisID int64) string {
