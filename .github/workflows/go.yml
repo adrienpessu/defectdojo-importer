@@ -19,38 +19,38 @@ jobs:
     - name: Build
       run: go build
 
-- name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: vscode-codeql-extension
-          path: artifacts
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: vscode-codeql-extension
+        path: artifacts
 
-      - name: Upload source maps
-        uses: actions/upload-artifact@v3
-        with:
-          name: vscode-codeql-sourcemaps
-          path: dist/vscode-codeql/out/*.map
+    - name: Upload source maps
+      uses: actions/upload-artifact@v3
+      with:
+        name: vscode-codeql-sourcemaps
+        path: dist/vscode-codeql/out/*.map
 
-        # TODO Run tests, or check that a test run on the same branch succeeded.
+      # TODO Run tests, or check that a test run on the same branch succeeded.
 
-      - name: Create release
-        id: create-release
-        uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: true
-          prerelease: false
+    - name: Create release
+      id: create-release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: true
+        prerelease: false
 
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1.0.1
-        if: success()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          # Get the `upload_url` from the `create-release` step above.
-          upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: 'defectdojo-importer'
-          asset_name: 'defectdojo-importer'
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1.0.1
+      if: success()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        # Get the `upload_url` from the `create-release` step above.
+        upload_url: ${{ steps.create-release.outputs.upload_url }}
+        asset_path: 'defectdojo-importer'
+        asset_name: 'defectdojo-importer'
