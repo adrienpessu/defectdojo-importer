@@ -20,20 +20,6 @@ jobs:
     - name: Build
       run: go build
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: vscode-codeql-extension
-        path: artifacts
-
-    - name: Upload source maps
-      uses: actions/upload-artifact@v3
-      with:
-        name: vscode-codeql-sourcemaps
-        path: dist/vscode-codeql/out/*.map
-
-      # TODO Run tests, or check that a test run on the same branch succeeded.
-
     - name: Create release
       id: create-release
       uses: actions/create-release@v1.0.0
@@ -55,3 +41,4 @@ jobs:
         upload_url: ${{ steps.create-release.outputs.upload_url }}
         asset_path: 'defectdojo-importer'
         asset_name: 'defectdojo-importer'
+        asset_content_type: 'application/octet-stream'
