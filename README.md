@@ -30,5 +30,5 @@ defectdojo-importer --github-token <GithubToken> --github-organization <org> --g
 or 
 
 ```
-defectdojo-importer --sarif-path sarif.json --dojo-instance <Dojo instance domain>
+defectdojo-importer --sarif-path sarif.json --dojo-instance <Dojo instance domain> --dojo-token <defectdojo token>
 ```
