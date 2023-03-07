@@ -40,4 +40,4 @@ jobs:
         upload_url: ${{ steps.create-release.outputs.upload_url }}
         asset_path: ./defectdojo-importer
         asset_name: 'defectdojo-importer'
-          asset_content_type: text/plain
+        asset_content_type: text/plain
