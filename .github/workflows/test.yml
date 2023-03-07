@@ -1,0 +1,20 @@
+---
+name: test
+on:
+  workflow_dispatch: 
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          
+          curl https://github.com/adrienpessu/defectdojo-importer/releases/download/0.0.11/defectdojo-importer -o defectdojo-importer
+          chmod +x defectdojo_importer
+          ls -l
+          ./defectdojo_importer --sarif-path /home/runner/.codeql/results/java.sarif --dojo-token ${{secrets.DOJO_SECRET }} --dojo-instance http://168.62.178.199:8080
+        env:
+          DEBUG: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
