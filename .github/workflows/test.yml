@@ -10,9 +10,9 @@ jobs:
       - run: |
           
           wget https://github.com/adrienpessu/defectdojo-importer/releases/download/0.0.11/defectdojo-importer 
-          chmod +x defectdojo_importer
+          chmod +x defectdojo-importer
           ls -l
-          ./defectdojo_importer --sarif-path /home/runner/.codeql/results/java.sarif --dojo-token ${{secrets.DOJO_SECRET }} --dojo-instance http://168.62.178.199:8080
+          ./defectdojo-importer --sarif-path /home/runner/.codeql/results/java.sarif --dojo-token ${{secrets.DOJO_SECRET }} --dojo-instance http://168.62.178.199:8080
         env:
           DEBUG: 1
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
