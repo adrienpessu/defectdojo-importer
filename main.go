@@ -137,7 +137,6 @@ func main() {
 		}
 		sarif = string(json)
 
-		os.WriteFile("test.json", []byte(sarif), 0644)
 
 	}
 
