@@ -1,7 +1,8 @@
-name: Go
+name: CLI
 
 on:  
   push:
+    workflow_dispatch:
     paths:
       - 'cli/**'
     tags:

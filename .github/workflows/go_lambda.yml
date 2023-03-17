@@ -1,4 +1,4 @@
-name: Go
+name: Lambda
 
 on:  
   workflow_dispatch:
