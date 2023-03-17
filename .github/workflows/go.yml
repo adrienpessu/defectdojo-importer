@@ -2,6 +2,8 @@ name: Go
 
 on:  
   push:
+    paths:
+      - 'cli/**'
     tags:
       - '*'
 
@@ -18,10 +20,10 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go build
+      run: cd cli && go build
 
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: defectdojo-importer
+        files: cli/defectdojo-importer

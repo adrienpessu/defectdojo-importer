@@ -15,3 +15,11 @@ require (
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 )
+
+require github.com/adrienpessu/defectdojo-importer/libs/defectdojo v0.0.0
+
+require github.com/adrienpessu/defectdojo-importer/libs/sarif v0.0.0
+
+replace github.com/adrienpessu/defectdojo-importer/libs/defectdojo => ./../libs/defectdojo
+
+replace github.com/adrienpessu/defectdojo-importer/libs/sarif => ./../libs/sarif
